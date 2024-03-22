@@ -1,60 +1,133 @@
+//
+
 import { useState } from "react";
 
-const messages = [
-  "Learn React ⚛️",
-  "Apply for jobs 💼",
-  "Invest your new income 🤑",
-];
+// :::::::::::::::::::::::::::::::::::::::::::::::::::: //
+// CHALLENGE #1
 
-export default function App() {
+export default function App(params) {
   const [step, setStep] = useState(1);
-  // const [text, setText] = useState({ name: "jhon" });
-  console.log(step);
-  // console.log(text);
-  // console.log(setText);
+  const [count, setCount] = useState(0);
 
-  const [isOpen, setIsOpen] = useState(true);
+  const date = new Date();
+  console.log(date);
+  date.setDate(date.getDate() + count);
 
-  function handelPrevious(params) {
-    if (step > 1) setStep((s) => s - 1);
-  }
-
-  function handelNext(params) {
-    if (step < 3) setStep((s) => s + 1);
-    // setText({ name: "karim" });
-  }
   return (
-    <>
-      <button className="btn" onClick={() => setIsOpen(!isOpen)}>
-        &times;
-      </button>
-      {isOpen && (
-        <div className="steps">
-          <div className="numbers">
-            <div className={step >= 1 ? "active" : ""}>1</div>
-            <div className={step >= 2 ? "active" : ""}>2</div>
-            <div className={step >= 3 ? "active" : ""}>3</div>
-          </div>
-          <p className="message">
-            Step {step}: {messages[step - 1]}
-            {/* name {text.name} */}
-          </p>
-          <div className="buttons ">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handelPrevious}
-            >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handelNext}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      )}
-    </>
+    <div className="container">
+      <div>
+        <button onClick={() => setStep((c) => c - 1)}>-</button>
+        <span>Step: {step}</span>
+        <button onClick={() => setStep((c) => c + 1)}>+</button>
+      </div>
+      <div>
+        <button onClick={() => setCount((c) => c - step)}>-</button>
+        <span>Count: {count}</span>
+        <button onClick={() => setCount((c) => c + step)}>+</button>
+      </div>
+      <p>
+        <span>
+          {count === 0
+            ? "today is "
+            : count > 0
+            ? `${count}  days from  today is `
+            : `${Math.abs(count)} days ago was `}
+        </span>
+        <span> {date.toDateString()}</span>
+      </p>
+    </div>
   );
 }
+
+// export default function App() {
+//   const [step, setStep] = useState(1);
+//   const [count, setCount] = useState(0);
+//   const [dayy, setDayy] = useState(new Date().getDate());
+//   console.log(`hhhhh ${dayy}`);
+
+//   const today = new Date("june 21 2027");
+//   console.log(today.toDateString());
+
+//   today.setDate(today.getDate() + count);
+
+//   const year = today.getFullYear();
+
+//   const days = [
+//     "Sunday",
+//     "Monday",
+//     "Tuesday",
+//     "Wednesday",
+//     "Thursday",
+//     "Friday",
+//     "Saturday",
+//   ];
+//   const day = days[today.getDay()]; // Get day index (0-6) and use it to access the day name
+
+//   const months = [
+//     "January",
+//     "February",
+//     "March",
+//     "April",
+//     "May",
+//     "June",
+//     "July",
+//     "August",
+//     "September",
+//     "October",
+//     "November",
+//     "December",
+//   ];
+//   const month = months[today.getMonth()]; // Get month index (0-11) and use it to access the month name
+//   const numMonth = today.getDate();
+
+//   console.log(`Today is ${day} ${month} ${numMonth} ${year}  ${today}`);
+
+//   function handlePlusStep() {
+//     setStep((s) => s + 1);
+//   }
+//   console.log(step);
+//   function handleMinusStep() {
+//     setStep((s) => s - 1);
+//   }
+
+//   function handlePlusCount() {
+//     // handlePlusStep();
+//     setCount((c) => c + step);
+//     setDayy((d) => d + 1);
+//   }
+
+//   function handleMinusCount() {
+//     setCount((c) => c - 1);
+//     setDayy((d) => d - 1);
+//   }
+
+//   return (
+//     <div className="container">
+//       <div className="block">
+//         <button onClick={handleMinusStep}>-</button>
+//         <span>Step:{step}</span>
+//         <button onClick={handlePlusStep}>+</button>
+//       </div>
+
+//       <div>
+//         <button onClick={handleMinusCount}>-</button>
+//         <span>Count:{count}</span>
+//         <button onClick={handlePlusCount}>+</button>
+//       </div>
+
+//       <p>
+//         {count > 0
+//           ? ` ${count} days from today is ${day} ${month} ${
+//               numMonth + count
+//             } ${year} `
+//           : ""}
+//         {count === 0 ? `Today is ${day} ${month} ${numMonth} ${year}` : ""}
+//         {count < 0
+//           ? ` ${
+//               1 - count - 1
+//             } days ago was ${day} ${month} ${numMonth} ${year} `
+//           : ""}
+//       </p>
+//     </div>
+//   );
+// }

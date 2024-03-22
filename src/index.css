@@ -103,3 +103,16 @@ h3 {
 .btn:hover {
   color: #7950f2;
 }
+
+/* CHALLENGE #1 */
+.container {
+  width: 550px;
+  margin: 100px auto;
+  padding: 20px 100px;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
