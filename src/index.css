@@ -116,3 +116,39 @@ h3 {
   justify-content: center;
   align-items: center;
 }
+
+.App {
+  padding: 20px;
+}
+
+.flashCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.item {
+  background-color: #f7f7f7;
+  border: #f3f0f0 solid 1px;
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.selected {
+  color: #fff;
+  background-color: #c55454;
+  border: #f3f0f0 solid 1px;
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
