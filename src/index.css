@@ -158,3 +158,64 @@ h3 {
   cursor: pointer;
   justify-content: center;
 }
+
+/* Steps  practice */
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #f7f7f7;
+
+  width: 500px;
+  margin: 100px auto;
+  padding: 20px 50px;
+
+  border-radius: 5px;
+}
+
+.step {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step div {
+  background-color: #e7e7e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+}
+
+div > .activ {
+  background-color: #7950f2;
+  color: #fff;
+}
+
+.texte {
+  padding: 30px;
+  font-weight: 700;
+}
+
+.bou {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btne {
+  border: none;
+  cursor: pointer;
+  background-color: #7950f2;
+  color: #fff;
+  border-radius: 50px;
+  padding: 5px 10px;
+}
