@@ -1,5 +1,71 @@
 import { useState } from "react";
 
+export default function App(params) {
+  const [count, setCount] = useState(0);
+  const [step, setStep] = useState(1);
+
+  const date = new Date();
+  console.log(date.toDateString());
+  date.setDate(date.getDate() + count);
+
+  function handlePlusCount() {
+    setCount(count + step);
+  }
+
+  function handleMinusCount() {
+    setCount(count - step);
+  }
+
+  const handleChangeCount = (event) => {
+    setCount(Number(event.target.value)); // Update state on change
+  };
+
+  const handleChangeStep = (event) => {
+    setStep(Number(event.target.value)); // Update state on change
+  };
+
+  function handelReset() {
+    setCount(0);
+    setStep(1);
+  }
+
+  return (
+    <div className="container">
+      <div>
+        <input
+          type="range"
+          min="0"
+          max="10"
+          value={step}
+          onChange={handleChangeStep}
+        />
+        <span>{step}</span>
+      </div>
+      <div>
+        <button onClick={handleMinusCount}>-</button>
+        <input type="number" value={count} onChange={handleChangeCount} />
+        <button onClick={handlePlusCount}>+</button>
+      </div>
+      <div>
+        <p>
+          {count === 0
+            ? "Today is "
+            : count > 0
+            ? count + " days from  today is "
+            : Math.abs(count) + " days was "}
+          {date.toDateString()}
+        </p>
+      </div>
+
+      {count !== 0 || step !== 1 ? (
+        <div>
+          <button onClick={handelReset}>Reset</button>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 // // Challenge #1
 // const questions = [
 //   {
